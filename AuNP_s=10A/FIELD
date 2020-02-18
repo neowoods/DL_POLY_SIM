@@ -1,0 +1,11 @@
+Au with Gupta forcefield
+UNITS ev  
+MOLECULES 1
+Au Atoms
+NUMMOLS 240
+ATOMS   1
+Au    64.546    0.0
+finish 
+metal 1
+Au  Au  gupt  0.2061  2.884  10.229  1.790  4.036
+close
