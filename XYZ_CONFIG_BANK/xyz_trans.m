@@ -39,7 +39,7 @@ fprintf(fid, '30\t0\t0\t\n');
 fprintf(fid, '0\t30\t0\t\n');
 fprintf(fid, '0\t0\t30\t\n');
 for ii = 1:size(xyz_new,1)
-    fprintf(fid, 'Au\t');
+    fprintf(fid, 'Au               ');
     fprintf(fid, num2str(ii));
     fprintf(fid, '\n');
     fprintf(fid, '  %f\t',xyz_new(ii,:));
