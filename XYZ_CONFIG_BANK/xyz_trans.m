@@ -16,21 +16,39 @@ xyz_new = xyz_mat - mean(xyz_mat, 'all');
 %% Write a new xyz file
 path = 'F:\DL_POLY_SIM\XYZ_CONFIG_BANK\';
 newfilename = strcat(path,filename,'_New');
-fileid = fopen(newfilename, 'w');
+fid = fopen(newfilename, 'w');
 fprintf(fid, number_of_atom);
 fprintf(fid, '\n');
-fprintf(fid, comment_line,'\n');
+fprintf(fid, comment_line);
 fprintf(fid, '\n');
 for ii = 1:size(xyz_new,1)
-    fprintf(fileid, 'Au\t');
-    fprintf(fileid, '%f\t',xyz_new(ii,:));
-    fprintf(fileid, '\n');
+    fprintf(fid, 'Au\t');
+    fprintf(fid, '%f\t',xyz_new(ii,:));
+    fprintf(fid, '\n');
 end
-fclose(fileid);
+fclose(fid);
+
+%% Write a new CONFIG file
+path = 'F:\DL_POLY_SIM\XYZ_CONFIG_BANK\CONFIG\';
+newfilename1 = strcat(path,filename,'_CONFIG');
+fid = fopen(newfilename1, 'w');
+fprintf(fid, comment_line);
+fprintf(fid, '\n');
+fprintf(fid, '0\t1\t\n');
+fprintf(fid, '30\t0\t0\t\n');
+fprintf(fid, '0\t30\t0\t\n');
+fprintf(fid, '0\t0\t30\t\n');
+for ii = 1:size(xyz_new,1)
+    fprintf(fid, 'Au\t');
+    fprintf(fid, num2str(ii));
+    fprintf(fid, '\n');
+    fprintf(fid, '  %f\t',xyz_new(ii,:));
+    fprintf(fid, '\n');
+end
+fclose(fid);
 
 
-
-%fid = fopen('myFile_truncated.txt', 'w')  ;   % Open destination file.
+%fid = fopen('myFile, 'w')  ;   % Open destination file.
 %fwrite(fid, buffer) ;                         % Save to file.
 %fclose(fid) ;
 
