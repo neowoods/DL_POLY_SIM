@@ -1,0 +1,75 @@
+#Understanding the derivatives
+
+
+# SYSTEM & ENSEMBLE
+temperature     		#Unit:Kelvin
+pressure           		#Unit:K-atmosphere
+ensemble
+
+
+# RESTART OPTIONS 
+restart  			#restart job from end point of previous run (i.e. continue current simulation, 
+				REVOLD required)
+dump  n				#set restart data dump interval to n steps (default n = 1000)
+
+
+# SUMULATION & EQUILIBRATION 
+step	n               	#run simulation for n timesteps (default n = 0, corresponding to a ”dry” run)
+timestep  f			#set timestep to f ps variable
+equilibration steps n		#equilibrate system for the first n timesteps (default n = 0)
+
+scale  temperature every n	#rescale system temperature every n steps (default n = 1) during equilibration 
+				(with respect to the last equilibration step - atomic velocities are scaled co
+				-llectively), N.B. any thermostat and barostat memory is also erased
+
+
+# SYSTEM CUTOFFS
+rcut	f			#set required long-ranged interactions cutoff, rcut, to f Angstrom	
+rvdw	f			#set required short-ranged interactions cutoff to f Angstrom	 
+rpad	f			#set optional padding to the major cutoff, rcut, to f ˚A (f ≥ Min[0.05, 0.5%.rcut],
+				 default f = 0)
+
+
+
+# SYSTEM ELECTROSTATICS
+
+
+
+# OUTPUT
+print 	every n			#print system data every n timesteps print
+
+
+# STATISTICS
+collect				#include equilibration data in overall statistics
+stats	every n			#accumulate statistics data every n timesteps
+stack	size  n	     		#set rolling average stack to n timesteps
+
+
+# HISTORY
+replay history			#abort simulation and replay HISTORY to recalculate structural properties such
+				 as RDFs, z-density profiles, defects and displacements trajectories (execution
+				 halts if no property is specified
+trajectory	i  j  k		#write HISTORY file with controls: 
+				i = start timestep for dumping configurations (default i = 0)
+				j = timestep interval between configurations (default j = 1) 
+				k = data level (default k = 0)
+
+
+# RDF
+rdf sampling every f		#calculate and collect radial distribution functions every f timesteps (default f = 1)
+print rdf 
+
+
+
+
+
+
+# EXECUTION TIME 
+job time   f			#set the walltime for a job to f seconds
+close time    f			#set the amount of time a job has to finalise I/O to f seconds (this must be smaller 
+				than the time specified by job time, see Further Comments on the CONTROL File notes)
+
+
+# FINISH 
+finish				#close the CONTROL file (last data record)
+
