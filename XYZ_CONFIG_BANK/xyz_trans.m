@@ -46,7 +46,7 @@ for ii = 1:size(xyz_new,1)
     fprintf(fid, '\n');
 end
 fclose(fid);
-
+result = 1
 
 %fid = fopen('myFile, 'w')  ;   % Open destination file.
 %fwrite(fid, buffer) ;                         % Save to file.
