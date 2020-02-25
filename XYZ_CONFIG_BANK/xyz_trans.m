@@ -14,7 +14,7 @@ xyz_new = xyz_mat - mean(xyz_mat, 'all');
 
 
 %% Write a new xyz file
-path = 'F:\DL_POLY_SIM\XYZ_CONFIG_BANK\';
+path = 'E:\DL_POLY_SIM-master\DL_POLY_SIM\XYZ_CONFIG_BANK\';
 newfilename = strcat(path,filename,'_New');
 fid = fopen(newfilename, 'w');
 fprintf(fid, number_of_atom);
@@ -29,15 +29,17 @@ end
 fclose(fid);
 
 %% Write a new CONFIG file
-path = 'F:\DL_POLY_SIM\XYZ_CONFIG_BANK\CONFIG\';
+path = 'E:\DL_POLY_SIM-master\DL_POLY_SIM\XYZ_CONFIG_BANK\CONFIG\';
 newfilename1 = strcat(path,filename,'_CONFIG');
 fid = fopen(newfilename1, 'w');
 fprintf(fid, comment_line);
 fprintf(fid, '\n');
-fprintf(fid, '0\t1\t\n');
-fprintf(fid, '30\t0\t0\t\n');
-fprintf(fid, '0\t30\t0\t\n');
-fprintf(fid, '0\t0\t30\t\n');
+fprintf(fid, '               0\t1\t');
+fprintf(fid, number_of_atom);
+fprintf(fid, '\n');
+fprintf(fid, '               30\t0\t0\t\n');
+fprintf(fid, '               0\t30\t0\t\n');
+fprintf(fid, '               0\t0\t30\t\n');
 for ii = 1:size(xyz_new,1)
     fprintf(fid, 'Au               ');
     fprintf(fid, num2str(ii));
@@ -46,7 +48,7 @@ for ii = 1:size(xyz_new,1)
     fprintf(fid, '\n');
 end
 fclose(fid);
-result = 1
+
 
 %fid = fopen('myFile, 'w')  ;   % Open destination file.
 %fwrite(fid, buffer) ;                         % Save to file.
