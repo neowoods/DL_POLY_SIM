@@ -1,0 +1,25 @@
+Calcite Nanoparticles in Water
+
+restart scale
+
+temperature            310.0
+pressure               0.001
+
+ensemble npt hoover 0.02 0.3
+variable timestep     0.0001
+
+steps                   20
+equilibrate             10
+scale                     20
+
+cutoff                  10.1
+spme precision        1.0e-6
+
+stats                    5
+
+print                    5
+
+job time               10000
+close time                20
+
+finish

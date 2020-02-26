@@ -1,0 +1,14 @@
+Cu3Au with Gupta forcefield
+units  ev
+molecular types 1
+Copper-Gold
+nummols 8000
+atoms 4
+Au     196.967       0.0     1 
+Cu      63.546       0.0     3
+finish
+metal 3
+Cu  Cu  gupt  0.0855  2.556  10.960  1.224   2.278
+Cu  Au  gupt  0.1539  2.556  11.050  1.5605  3.0475
+Au  Au  gupt  0.2061  2.884  10.229  1.790   4.036
+close

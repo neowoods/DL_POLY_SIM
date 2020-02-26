@@ -1,0 +1,28 @@
+COPPER WITH TABULATED EAM POTENTIAL
+
+restart scale
+
+temperature            300.0   K
+pressure               0.0   katm
+
+ensemble npt ber       1.0 3.0
+timestep               0.001 ps
+
+steps                  20     steps
+equilibration          10     steps
+scale                  10     steps
+
+no electrostatics
+cutoff                 5.0   Angstroms
+
+print                  2     steps
+stack                  2     steps
+stats                  2     steps
+
+#rdf                   10     steps
+#print rdf
+
+job time               600.0  s
+close time             100.0  s
+
+finish

@@ -1,0 +1,45 @@
+DL_POLY: Au Nanoparticle s=10Angstrom Test Case (200 Atoms)
+
+# SYSTEM & EMSEMBLE
+press                 0.001
+temperature           300
+timestep              0.001
+ensemble nve
+
+# Don't understand
+# dump		      500
+restart scale	      
+
+#EQUILIBRATION & STEPS
+equilibration 	      5000
+steps                 200000
+scale                 10
+minimise force        20        1.0        0.00001
+optimise energy       0.001     0.00005
+regauss 	      3
+
+# SYSTEM CUTOFFS AND EECTROSTATICS 
+cutoff		      8.2
+rvdw                  7.5
+no electrostatics
+
+# OUTPUT
+print		      10
+
+# STATISTICS
+stats                 100
+stack		      100
+
+# HISTORY
+trajectory	      1000         5         0
+
+# RDF
+print rdf 
+rdf                   10 
+
+dump 		      500
+
+job time              1000
+close time            100
+
+finish
