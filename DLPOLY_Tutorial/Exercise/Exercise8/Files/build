@@ -1,0 +1,8 @@
+#!/usr/bin/env bash 
+
+for i in *.f; do
+   gfortran -O3 -o ${i/.f/.X} $i
+done
+for i in *.F90; do
+   gfortran -O3 -o ${i/.F90/.X} $i
+done

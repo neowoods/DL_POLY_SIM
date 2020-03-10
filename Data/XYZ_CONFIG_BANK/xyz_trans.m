@@ -34,12 +34,12 @@ newfilename1 = strcat(path,filename,'_CONFIG');
 fid = fopen(newfilename1, 'w');
 fprintf(fid, comment_line);
 fprintf(fid, '\n');
-fprintf(fid, '               0\t1\t');
+fprintf(fid, '         0\t1\t');
 fprintf(fid, number_of_atom);
 fprintf(fid, '\n');
-fprintf(fid, '               30\t0\t0\t\n');
-fprintf(fid, '               0\t30\t0\t\n');
-fprintf(fid, '               0\t0\t30\t\n');
+fprintf(fid, '         30\t0\t0\t\n');
+fprintf(fid, '         0\t30\t0\t\n');
+fprintf(fid, '         0\t0\t30\t\n');
 for ii = 1:size(xyz_new,1)
     fprintf(fid, 'Au               ');
     fprintf(fid, num2str(ii));
