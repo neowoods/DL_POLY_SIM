@@ -1,6 +1,6 @@
 #!/bin/sh
 #  run runedaca.bat 
 #
-cd $PWD
+
 nohup time -p -o output ./runedaca.bat  > output  &
 
