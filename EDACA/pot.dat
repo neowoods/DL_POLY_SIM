@@ -1,0 +1,4 @@
+# potential       potential     
+#  in XYZ          in feff.inp (0=Au*, 1=Au)
+  0   0
+  1   1
